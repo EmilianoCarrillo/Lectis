@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Rubik:wght@400;500;700&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Rubik', sans-serif;
+  background-color: var(--grey--200);
+  color: var(--grey--900);
 }
 
 a {
@@ -13,4 +16,78 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, span{
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+:root{
+  /* Color styles */
+--grey--900: hsla(221, 85.7%, 11%, 1);
+--grey--800: hsla(228, 32.8%, 23.3%, 1);
+--grey--700: hsla(228, 28%, 39.2%, 1);
+--grey--600: hsla(229, 24.9%, 55.1%, 1);
+--grey--500: hsla(230, 29%, 75.7%, 1);
+--grey--400: hsla(232, 35.5%, 87.8%, 1);
+--grey--300: hsla(234, 45.5%, 95.7%, 1);
+--grey--200: hsla(240, 42.9%, 98.6%, 1);
+--grey--100: hsla(0, 0%, 100%, 1);
+--red--900: hsla(345, 72.4%, 35.5%, 1);
+--red--800: hsla(346, 68.7%, 42.5%, 1);
+--red--700: hsla(354, 53.2%, 49.4%, 1);
+--red--600: hsla(355, 72.9%, 61%, 1);
+--red--500: hsla(354, 93.1%, 66.1%, 1);
+--red--400: hsla(356, 92.9%, 72.4%, 1);
+--red--300: hsla(356, 91.7%, 76.5%, 1);
+--red--200: hsla(356, 88.4%, 83.1%, 1);
+--red--100: hsla(357, 86.7%, 88.2%, 1);
+--green--900: hsla(163, 61.4%, 22.4%, 1);
+--green--800: hsla(164, 67.9%, 25.7%, 1);
+--green--700: hsla(163, 55.7%, 32.7%, 1);
+--green--600: hsla(153, 38%, 48%, 1);
+--green--500: hsla(152, 39.9%, 52.4%, 1);
+--green--400: hsla(150, 44.6%, 61.8%, 1);
+--green--300: hsla(150, 49.1%, 66.1%, 1);
+--green--200: hsla(148, 43.1%, 78.6%, 1);
+--green--100: hsla(148, 48.2%, 83.3%, 1);
+--yellow--900: hsla(44, 67.4%, 27.6%, 1);
+--yellow--800: hsla(44, 75.7%, 29%, 1);
+--yellow--700: hsla(44, 62.7%, 43.1%, 1);
+--yellow--600: hsla(44, 83.3%, 57.8%, 1);
+--yellow--500: hsla(43, 89.2%, 63.7%, 1);
+--yellow--400: hsla(41, 77.6%, 68.4%, 1);
+--yellow--300: hsla(40, 80.6%, 73.7%, 1);
+--yellow--200: hsla(38, 74.7%, 82.9%, 1);
+--yellow--100: hsla(37, 73.3%, 88.2%, 1);
+--blue--900: hsla(221, 85.7%, 11%, 1);
+--blue--800: hsla(218, 85.1%, 18.4%, 1);
+--blue--700: hsla(202, 53.9%, 42.5%, 1);
+--blue--600: hsla(201, 63.5%, 49.4%, 1);
+--blue--500: hsla(202, 68.9%, 57.1%, 1);
+--blue--400: hsla(206, 66%, 70%, 1);
+--blue--300: hsla(207, 70.7%, 77.3%, 1);
+--blue--200: hsla(211, 63.1%, 87.3%, 1);
+--blue--100: hsla(211, 53.8%, 92.4%, 1);
+
+/* Text-size styles */
+--title--medium: 27px;
+--subtitle--regular: 18px;
+--subtitle--medium: 18px;
+--body--regular: 14px;
+--caption--medium: 14px;
+--caption--bold: 14px;
+--reading--regular: 14px;
+
+/* Effect styles */
+--slot: inset 6px 0px 4px rgba(40, 48, 79, 0.17);
+--card:  0px 2px 3px rgba(72, 83, 128, 0.43), 0px 10px 10px rgba(112, 122, 169, 0.23);
+--portada: inset 0px 32px 18px rgba(40, 48, 79, 0.17);
+--profile-card--blue:  0px 11px 22px rgba(70, 165, 221, 0.43), 0px 2px 3px rgba(128, 186, 229, 0.63);
+--profile-card--yellow:  0px 11px 22px rgba(245, 198, 80, 0.43), 0px 2px 3px rgba(237, 197, 112, 0.63);
+--profile-card--green:  0px 11px 22px rgba(85, 182, 137, 0.43), 0px 2px 3px rgba(114, 201, 158, 0.63);
+--profile-card--red:  0px 11px 22px rgba(249, 88, 103, 0.43), 0px 2px 3px rgba(250, 119, 128, 0.63);
+
 }

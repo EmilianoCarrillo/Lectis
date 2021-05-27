@@ -1,0 +1,21 @@
+.global_wrapper{
+  padding: 80px 32px;
+}
+
+.heading{
+  margin-bottom: 32px;
+
+  p:first-of-type{
+    margin-bottom: 8px;
+  }
+  
+}
+
+.card{
+  background: var(--blue--100);
+  border-radius: 24px;
+  width: 100%;
+  height: 175px;
+  box-shadow: var(--profile-card--blue);
+  margin-bottom: 64px;
+}

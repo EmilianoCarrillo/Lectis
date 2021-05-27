@@ -1,0 +1,49 @@
+/* Typography */
+.title_medium{
+  color: var(--grey--900);
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 32px;
+}
+
+.caption_bold{ 
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+}
+
+.caption_medium{
+  color: var(--grey--600);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.subtitle_regular{
+  color: var(--grey--600);
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.subtitle_medium{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.body_regular{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.reading_regular{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 23px;
+}
