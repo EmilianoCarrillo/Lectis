@@ -1,0 +1,10 @@
+.container{
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 25px;
+
+  h3{
+    color: var(--grey--800);
+  }
+}

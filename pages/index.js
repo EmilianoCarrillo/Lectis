@@ -1,12 +1,24 @@
 import utils from '../styles/utils.module.css'
 import styles from './index.module.scss'
+import { createClient } from 'contentful'
+import BotonCategoria from '../components/boton-categoria'
 
-const client = require('contentful').createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-})
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+    accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+  })
 
-function Inicio() {
+  const res = await client.getEntries({ content_type: 'categoria' })
+
+  return {
+    props: {
+      categorias: res.items
+    }
+  }
+}
+
+function Inicio({ categorias }) {
   return (
     <div className={styles.global_wrapper}>
       <div className={styles.heading}>
@@ -18,8 +30,15 @@ function Inicio() {
 
       </div>
 
-      <div classname={styles.categorias}>
+      <div className={styles.categorias}>
         <p className={utils.caption_medium }>Categorías</p>
+        {
+          categorias.map(categoria => (
+            <BotonCategoria 
+              key={categoria.sys.id}
+              categoria={categoria}/>
+          ))
+        }
       </div>
     </div>
   )

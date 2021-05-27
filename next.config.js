@@ -6,4 +6,8 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
   },
+  images: {
+    domains: ['images.ctfassets.net']
+  }
 })
+
