@@ -34,13 +34,20 @@ export async function getStaticProps({ params }) {
     'fields.slug': params.slug
   })
 
+  const lects  = await client.getEntries({
+    content_type: 'lectura',
+    'fields.categoria.sys.id': items[0].sys.id
+  })
+
   return{
-    props: { categoria : items[0] }
+    props: { 
+      categoria : items[0],
+      lecturas : lects.items
+    }
   }
 }
 
-function Lecturas({ categoria }) {
-  console.log(categoria);
+function Lecturas({ categoria, lecturas }) {
   return (
     <div>
       <NavigationBar />
@@ -51,10 +58,14 @@ function Lecturas({ categoria }) {
       </div>
 
       <div className={styles.card_list}>
-        <LecturaCard 
-          titulo = "El electrón: Una mirada hacia su historia"
-          autor = "Andrés Parra" 
-        />
+      {
+        lecturas.map(lectura => (
+          <LecturaCard 
+            lectura={lectura}
+            key={lectura.sys.id}
+          />
+        ))
+      }
       </div>
     </div>
   )
