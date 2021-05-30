@@ -4,6 +4,7 @@ import NavigationBar from '../../components/navigation-bar'
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import AudioPlayer from '../../components/audio-player'
 
 // Generar páginas por cada lectura
 const client = createClient({
@@ -66,9 +67,7 @@ function Lectura({ lectura }) {
       <div className={[styles.body, utils.reading_regular].join(' ')}>
       {documentToReactComponents(cuerpo)}
       </div>
-      <div className={styles.audio_player}>
-        <img src='/assets/play.svg' alt='Reproducir'/>
-      </div>
+      <AudioPlayer />
       <div className={styles.floating_button}>
       <img src='/assets/question.svg' alt='Ir a las preguntas'/>
       </div>
