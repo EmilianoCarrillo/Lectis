@@ -32,6 +32,8 @@ export default function AudioPlayer({ audio }) {
     setIsPlaying(!prevValue);
     if(!prevValue) {
       audioPlayer.current.play()
+      audioPlayer.current.pause()
+      audioPlayer.current.play()
       animationRef.current = requestAnimationFrame(whilePlaying)
     } else{
       audioPlayer.current.pause()
@@ -91,7 +93,7 @@ export default function AudioPlayer({ audio }) {
             <img src="/assets/forward 10.svg"/>
           </button>
         </div>
-        <span className={utils.small_regular}>{(duration && !isNaN(duration)) && calculateTime(duration)}</span>
+        <span className={utils.small_regular}>{((duration && !isNaN(duration)) ? calculateTime(duration) : '')}</span>
       </div>
 
       
