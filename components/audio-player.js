@@ -68,7 +68,9 @@ export default function AudioPlayer({ audio }) {
 
   return (
     <div className={styles.wrapper}>
-      <audio src={'http:' + audio.fields.file.url } preload="metadata" ref={audioPlayer}/>
+      <audio preload="metadata" ref={audioPlayer}> 
+        <source src={'https:' + audio.fields.file.url } type="audio/mp3" codecs="mp3" />
+      </audio>
 
       <div className={styles.progressbar_wrapper}>
         <input type="range" className={styles.progressbar} defaultValue='0' ref={progressBar} onChange={changeRange}/>
@@ -81,7 +83,7 @@ export default function AudioPlayer({ audio }) {
             <img src="/assets/back 10.svg"/>
           </button>
           <div className={styles.playpause_wrapper}>
-            <button onClick={togglePlayPause} className={styles.play_pause_btn}>
+            <button onClick={togglePlayPause} className={styles.play_pause_btn} onTouchStart="">
               <img src={ '/assets/' + (isPlaying ? 'pause' : 'play') + '.svg'  } alt="bot"/>
             </button>
           </div>
