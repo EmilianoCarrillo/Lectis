@@ -5,6 +5,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import AudioPlayer from '../../components/audio-player'
+import { BLOCKS } from "@contentful/rich-text-types"
 
 // Generar páginas por cada lectura
 const client = createClient({
@@ -43,8 +44,19 @@ export async function getStaticProps({ params }) {
   }
 }
 
+const dtrOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => (
+      <img
+        src={node.data?.target?.fields?.file?.url}
+        alt={node.data?.target?.fields?.title}
+      />
+    ),
+  },
+};
+
 function Lectura({ lectura }) {
-  const { titulo , autor, nivel, slug, portada, categoria, cuerpo } = lectura.fields  
+  const { titulo , autor, nivel, slug, portada, categoria, cuerpo, audio } = lectura.fields  
 
   return (
     <div>
@@ -65,11 +77,15 @@ function Lectura({ lectura }) {
           </div>
       </div>
       <div className={[styles.body, utils.reading_regular].join(' ')}>
-      {documentToReactComponents(cuerpo)}
+      {documentToReactComponents(cuerpo, dtrOptions)}
       </div>
-      <AudioPlayer />
-      <div className={styles.floating_button}>
-      <img src='/assets/question.svg' alt='Ir a las preguntas'/>
+      <div className={styles.fixed_elements}>
+        <div className={styles.floating_button}>
+          <img src='/assets/question.svg' alt='Ir a las preguntas'/>
+        </div>
+        {
+          audio ? <AudioPlayer audio={audio}/> : <></>
+        }
       </div>
     </div>
   )

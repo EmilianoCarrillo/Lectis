@@ -1,54 +1,109 @@
 .wrapper{
-  display: flex;
   align-items: center;
   justify-content: space-between;
 
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
-  height: 62px;
-  background: var(--grey--800);
+  height: 79px;
+  background: var(--grey--100);
   padding: 12px 16px;
 
-  color: var(--grey--100);
+  color: var(--blue--500);
+  
+}
+
+.buttons{
+  width: 169px;
+  display: flex;
+  justify-content:space-between;
+}
+
+.button_steps{
+  border: none;
+  background: none;
+}
+
+.playpause_wrapper{
+  height: 39px;
 }
 
 .play_pause_btn{
+  background-color: var(--blue--500);
   display: flex;
-  background: none;
+  border-radius: 22px;
   border: none;
+  width: 73px;
+  height: 32px;
+
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0px 3px 0px #377CA4);
+  transition: all 0.2s ease-in-out;
+}
+
+.play_pause_btn:active{
+  background-color: var(--blue--700);
+  margin-top: 3px;
+  filter:none;
+}
+
+.buttons_wrapper{
+  display:flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5px;
+
+  span{
+    width:35px;
+    color: var(--blue--300);
+  }
+
+  // span:nth-of-type(2){
+  //   color: var(--blue--300);
+  // }
+}
+
+
+/*PROGRESS BAR*/
+
+.progressbar_wrapper{
+  left: 0px;
+  top: -10px;
+  width: 100%;
+  position: absolute;
 }
 
 .progressbar{
-  --bar-bg: var(--grey--600);
-  --seek-before-width: 100px;
-  --seek-before-color: var(--grey--100);
-  --knobby: var(--grey--100);
-  --selectedKnobby: var(--grey--900);
+  --bar-bg: var(--blue--200);
+  --seek-before-width: 0;
+  --seek-before-color: var(--blue--500);
+  --knobby: var(--blue--500);
+  --selectedKnobby: var(--blue--700);
 
   appearance: none;
   background: var(--bar-bg);
-  border-radius: 10px;
+  border-radius: none;
   width: 100%;
-  height: 9px;
+  height: 6px;
   outline: none;
 }
 
 /* SAFARI */
 .progressbar::-webkit-slider-runnable-track{
   background: var(--bar-bg);
-  border-radius: 10px;
+  border-radius: none;
   width: 100%;
-  height: 9px;
+  height: 6px;
   outline: none;
 }
 
 /* FIREFOX */
 .progressbar::-moz-range-track{
   background: var(--bar-bg);
-  border-radius: 10px;
+  border-radius: none;
   width: 100%;
-  height: 9px;
+  height: 6px;
   outline: none;
 }
 
@@ -58,33 +113,33 @@
 
 .progressbar::before{
   content: '';
-  height: 9px;
+  height: 6px;
   width: var(--seek-before-width);
   background-color: var(--seek-before-color);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  // border-top-left-radius: 10px;
+  // border-bottom-left-radius: 10px;
   position: absolute;
-  top: 6px;
+  top: 10px;
   left: 2px;
   z-index: 2;
 }
 
 .progressbar::-moz-range-progress{
   background-color: var(--seek-before-color);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  height: 9px;
+  // border-top-left-radius: 10px;
+  // border-bottom-left-radius: 10px;
+  height: 6px;
 }
 
 .progressbar::-webkit-slider-thumb{
   -webkit-appearance: none;
-  height: 18px;
-  width: 18px;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   border: none;
   background-color: var(--knobby);
   position: relative;
-  margin: -4px 0 0 0;
+  margin: -3px 0 0 0;
   z-index: 3;
   box-sizing: border-box;
 }
@@ -108,11 +163,5 @@
 .progressbar:active::mox-range-thumb{
   transform: scale(1.2);
   background-color: var(--selectedKnobby);
-}
-
-.progressbar_wrapper{
-  margin-left: 24px;
-  width: 100%;
-  position: relative;
 }
 
