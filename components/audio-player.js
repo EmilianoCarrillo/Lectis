@@ -32,8 +32,6 @@ export default function AudioPlayer({ audio }) {
     setIsPlaying(!prevValue);
     if(!prevValue) {
       audioPlayer.current.play()
-      audioPlayer.current.pause()
-      audioPlayer.current.play()
       animationRef.current = requestAnimationFrame(whilePlaying)
     } else{
       audioPlayer.current.pause()
@@ -53,6 +51,7 @@ export default function AudioPlayer({ audio }) {
   }
 
   const changePlayerCurrentTime = () => {
+    console.log(progressBar.current.value, duration)
     progressBar.current.style.setProperty('--seek-before-width', 
     `${progressBar.current.value / duration * 100}%`)
     setCurrentTime(progressBar.current.value)
@@ -70,7 +69,7 @@ export default function AudioPlayer({ audio }) {
 
   return (
     <div className={styles.wrapper}>
-      <audio preload="metadata" ref={audioPlayer}> 
+      <audio preload="metadata" ref={audioPlayer} onLoadedMetadata={changePlayerCurrentTime}> 
         <source src={'https:' + audio.fields.file.url } type="audio/mp3" codecs="mp3" />
       </audio>
 
