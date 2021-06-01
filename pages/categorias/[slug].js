@@ -43,7 +43,8 @@ export async function getStaticProps({ params }) {
     props: { 
       categoria : items[0],
       lecturas : lects.items
-    }
+    }, 
+    revalidate: 1
   }
 }
 

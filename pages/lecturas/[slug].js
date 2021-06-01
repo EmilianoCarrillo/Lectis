@@ -40,7 +40,8 @@ export async function getStaticProps({ params }) {
   return{
     props: { 
       lectura : items[0]
-    }
+    },
+    revalidate: 1
   }
 }
 

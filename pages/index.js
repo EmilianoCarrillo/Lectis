@@ -14,7 +14,8 @@ export async function getStaticProps() {
   return {
     props: {
       categorias: res.items
-    }
+    },
+    revalidate: 1
   }
 }
 
