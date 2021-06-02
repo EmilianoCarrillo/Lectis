@@ -2,7 +2,7 @@ import styles from './audio-player.module.scss'
 import utils from '../styles/utils.module.css'
 import { useState, useRef, useEffect } from 'react'
 
-export default function AudioPlayer({ audio }) {
+export default function AudioPlayer({ audio, pausar }) {
 
   const [isPlaying, setIsPlaying] = useState(false)
   const [duration, setDuration] = useState(0)
@@ -51,7 +51,6 @@ export default function AudioPlayer({ audio }) {
   }
 
   const changePlayerCurrentTime = () => {
-    console.log(progressBar.current.value, duration)
     progressBar.current.style.setProperty('--seek-before-width', 
     `${progressBar.current.value / duration * 100}%`)
     setCurrentTime(progressBar.current.value)
