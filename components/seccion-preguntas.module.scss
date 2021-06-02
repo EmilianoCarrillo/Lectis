@@ -2,7 +2,86 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: 100%;
   z-index: 4;
   background: #424B59;
+  background-image: url('/assets/bg.svg');
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100% auto;
+
+  transition: ease-in-out all 0.5s;
+  -webkit-transition: ease-in-out all 0.5s;
+  -moz-transition: ease-in-out all 0.5s;
+
+  margin-top: 24px;
+  border-radius: 32px 32px 0 0;
+  padding: 49px 32px;
+  box-shadow: 0px -3px 2px rgba(61, 71, 85, 0.19), 0px 1px 18px 12px rgba(112, 122, 169, 0.25);
+
+  text-align: center;
+
+  &.abierta{
+    top: 0%;
+  }
+
+}
+
+.text{
+  margin: 47px 0px;
+
+  h3{
+    color: var(--grey--100);
+  }
+
+  span{
+    display: block;
+    margin-bottom: 14px;
+    color: var(--grey--100);
+    font-weight: 100;
+  }
+}
+
+.retroalimentacion{
+  text-align: justify;
+  color: var(--grey--500);
+  margin-top: 32px;
+
+  p{
+    line-height: 18px;
+  }
+}
+
+.siguiente_btn{
+  margin-top: 62px;
+  background: var(--grey--100);
+  color: var(--grey--900);
+  border: none;
+  padding: 4px 14px;
+  border-radius: 36px;
+
+  img{
+    margin-left: 12px;
+  }
+
+  filter: drop-shadow(0px 5px 0px var(--grey--900));
+
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2 ease-in-out;
+  -moz-transition: all 0.2 ease-in-out;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.siguiente_btn:active{
+  background-color: var(--grey--400);
+  transform: translateY(-4px);
+  margin-top: 68px;
+  filter:none;
 }

@@ -39,6 +39,10 @@ export default function AudioPlayer({ audio, pausar }) {
     }
   }
 
+  if (pausar && isPlaying) {
+    togglePlayPause()
+  }
+
   const whilePlaying = () => {
     progressBar.current.value = audioPlayer.current.currentTime
     changePlayerCurrentTime()

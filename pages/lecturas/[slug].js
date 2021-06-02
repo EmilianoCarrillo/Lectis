@@ -95,9 +95,7 @@ function Lectura({ lectura }) {
           audio && <AudioPlayer audio={audio} pausar={preguntasAbiertas}/>
         }
       </div>
-      {
-        preguntasAbiertas && <SeccionPreguntas />
-      }
+      <SeccionPreguntas abierta={preguntasAbiertas}/>
     </div>
   )
 }
