@@ -1,12 +1,51 @@
 import styles from './audio-player.module.scss'
 import { useState } from 'react'
 
-export default function AudioPlayer() {
+export default function AudioPlayer({ audio, pausar }) {
 
   const [isPlaying, setIsPlaying] = useState(false)
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
+    const prevValue = isPlaying;
+    setIsPlaying(!prevValue);
+    if(!prevValue) {
+      audioPlayer.current.play()
+      animationRef.current = requestAnimationFrame(whilePlaying)
+    } else{
+      audioPlayer.current.pause()
+      cancelAnimationFrame(animationRef.current)
+    }
+  }
+
+  if (pausar && isPlaying){
+    togglePlayPause()
+  }
+
+  const whilePlaying = () => {
+    progressBar.current.value = audioPlayer.current.currentTime
+    changePlayerCurrentTime()
+    animationRef.current = requestAnimationFrame(whilePlaying)
+  }
+
+  const changeRange = () => {
+    audioPlayer.current.currentTime = progressBar.current.value;
+    changePlayerCurrentTime()
+  }
+
+  const changePlayerCurrentTime = () => {
+    progressBar.current.style.setProperty('--seek-before-width', 
+    `${progressBar.current.value / duration * 100}%`)
+    setCurrentTime(progressBar.current.value)
+  }
+
+  const backTen = () => {
+    progressBar.current.value = Number(progressBar.current.value) - 10;
+    changeRange();
+  }
+
+  const forwardTen = () => {
+    progressBar.current.value = Number(progressBar.current.value) + 10;
+    changeRange();
   }
 
   return (

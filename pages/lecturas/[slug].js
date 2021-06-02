@@ -5,6 +5,10 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import AudioPlayer from '../../components/audio-player'
+import { BLOCKS } from "@contentful/rich-text-types"
+import SeccionPreguntas from '../../components/seccion-preguntas'
+import { useState, useRef, useEffect } from 'react'
+import FloatingButton from '../../components/floating-button'
 
 // Generar páginas por cada lectura
 const client = createClient({
@@ -44,7 +48,13 @@ export async function getStaticProps({ params }) {
 }
 
 function Lectura({ lectura }) {
-  const { titulo , autor, nivel, slug, portada, categoria, cuerpo } = lectura.fields  
+  const { titulo , autor, nivel, slug, portada, categoria, cuerpo, audio } = lectura.fields  
+
+  const [preguntasAbiertas, setPreguntasAbiertas] = useState(false)
+
+  const handleFloatingBtnClick = () => {
+    setPreguntasAbiertas(!preguntasAbiertas);
+  }
 
   return (
     <div>
@@ -67,10 +77,15 @@ function Lectura({ lectura }) {
       <div className={[styles.body, utils.reading_regular].join(' ')}>
       {documentToReactComponents(cuerpo)}
       </div>
-      <AudioPlayer />
-      <div className={styles.floating_button}>
-      <img src='/assets/question.svg' alt='Ir a las preguntas'/>
+      <div className={`${styles.fixed_elements} ${audio && preguntasAbiertas && styles.pausado}`}>
+        <FloatingButton onClick={handleFloatingBtnClick} preguntasAbiertas={preguntasAbiertas}/>
+        {
+          audio && <AudioPlayer audio={audio} pausar={preguntasAbiertas}/>
+        }
       </div>
+      {
+        preguntasAbiertas && <SeccionPreguntas />
+      }
     </div>
   )
 }
