@@ -14,6 +14,7 @@
 }
 
 .fixed_elements{
+  pointer-events: none;
   position: fixed;
   bottom: 0;
   width: 100%;

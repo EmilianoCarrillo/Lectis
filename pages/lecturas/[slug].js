@@ -60,7 +60,7 @@ const dtrOptions = {
 };
 
 function Lectura({ lectura }) {
-  const { titulo , autor, nivel, slug, portada, categoria, cuerpo, audio } = lectura.fields  
+  const { titulo , autor, nivel, slug, portada, categoria, cuerpo, audio, preguntas } = lectura.fields  
 
   const [preguntasAbiertas, setPreguntasAbiertas] = useState(false)
 
@@ -90,12 +90,18 @@ function Lectura({ lectura }) {
       {documentToReactComponents(cuerpo, dtrOptions)}
       </div>
       <div className={`${styles.fixed_elements} ${audio && preguntasAbiertas && styles.pausado}`}>
-        <FloatingButton onClick={handleFloatingBtnClick} preguntasAbiertas={preguntasAbiertas}/>
+        {
+          preguntas &&
+          <FloatingButton onClick={handleFloatingBtnClick} preguntasAbiertas={preguntasAbiertas}/> 
+        }
         {
           audio && <AudioPlayer audio={audio} pausar={preguntasAbiertas}/>
         }
       </div>
-      <SeccionPreguntas abierta={preguntasAbiertas}/>
+      {
+        preguntas &&
+        <SeccionPreguntas abierta={preguntasAbiertas} preguntas={preguntas}/>
+      }
     </div>
   )
 }
