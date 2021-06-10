@@ -39,6 +39,10 @@
   box-shadow: inset 0px 20px 19px 5px rgba(66, 75, 89, 1);
   border-radius: 60px;
 
+  transition: ease-in-out all 0.5s;
+  -webkit-transition: ease-in-out all 0.5s;
+  -moz-transition: ease-in-out all 0.5s;
+
 
   &.abierta{
     top: 24px;
