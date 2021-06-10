@@ -51,7 +51,7 @@ function SeccionPreguntas({ abierta, preguntas }) {
 
   return (
     <div className={`${styles.wrapper} ${abierta && styles.abierta}`}>
-      <div className={styles.shadow}></div>
+      <div className={`${styles.shadow} ${abierta && styles.abierta}`}></div>
       { resultados && <Tabs resultados={resultados}/>}
       <div className={styles.contentWrapper}>
         <div className={styles.text}>
