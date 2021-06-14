@@ -12,6 +12,9 @@ function Opciones({ respuestas, handleClick }) {
     if(!respuesta.correcta){
       e.target.style.setProperty('background', 'var(--red--500)')
       e.target.style.setProperty('color', 'var(--grey--100)')
+      e.target.style.setProperty('animation', 'none')
+      e.target.style.setProperty('-webkit-animation', 'none')
+      
     }
     handleClick(refs, respuesta.correcta)
   }

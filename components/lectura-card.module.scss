@@ -8,6 +8,8 @@
   box-shadow: var(--card);
   margin-bottom: 24px;
   column-width: 126px auto;
+
+  transition: all 0.2s ease-in-out;
 }
 
 .image_wrapper{
@@ -17,6 +19,7 @@
 }
 
 .content{
+  width: 100%;
   padding: 14px 14px 8px 14px;
   display: flex;
   columns: 1fr;

@@ -27,6 +27,8 @@ function SeccionPreguntas({ abierta, preguntas }) {
     refOpciones.current.map( ref => {
       ref.current.style.removeProperty('background')
       ref.current.style.removeProperty('color')
+      ref.current.style.removeProperty('animation')
+      ref.current.style.removeProperty('-webkit-animation')
     })
   }
 

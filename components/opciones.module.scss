@@ -27,12 +27,12 @@
   -webkit-transition: all 0.6s ease-out;
   -moz-transition: all 0.6s ease-out;
 
+
   &:last-of-type{
     margin-bottom: 0;
   }
 
   &.correcta, &.incorrecta{
-    opacity: 0.4;
     pointer-events: none;
   }
 
@@ -43,7 +43,32 @@
   }
   &.incorrecta{
     transform: scale(0.95);
-    // background-color: var(--red--500);
+    opacity: 0.4;
+    
+    animation: disappear 1s;
+    animation-delay: 0.8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation: disappear 1s;
+    -webkit-animation-delay: 0.8s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+  }
+
+  @keyframes disappear {
+    0% {
+      opacity: 0.4;
+      min-height: 50px; 
+    }
+    100% {
+      min-height: 0px;
+      height: 0px;
+      margin: 0;
+      opacity: 0;
+      padding-top: 0; padding-bottom: 0;
+    }
   }
 
   span{
