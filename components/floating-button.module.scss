@@ -1,25 +1,31 @@
 .floating_button{
   pointer-events: all;
-  margin: 32px;
-  width: 64px;
-  height: 64px;
+  margin-bottom: 32px;
+  width: 170px;
+  height: 48px;
   background: var(--grey--800);
-  border-radius: 64px;
+  border-radius: 64px 0px 0px 64px;
   display: flex;
-  justify-content: center;
   align-items: center;
   box-shadow: var(--card);
+  color: var(--grey--100);
 
-  transition: ease-in-out all 0.2s;
-  -webkit-transition: ease-in-out all 0.2s;
-  -moz-transition: ease-in-out all 0.2s;
+  span{
+    margin-left: 8px;
+  }
+  
+
+  transition: ease-in-out all 0.4s;
+  -webkit-transition: ease-in-out all 0.4s;
+  -moz-transition: ease-in-out all 0.4s;
 
   img{
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
     color: white;
   }
   &.dark{
     background: var(--grey--100);
+    color: var(--grey--900);
   }
 }

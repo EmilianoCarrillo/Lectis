@@ -35,7 +35,7 @@
 .body{
   color: var(--grey--900);
   padding: 32px;
-  margin-bottom: 150px;
+  margin-bottom: 16px;
 
   p {
     margin-bottom: 24px;
@@ -51,6 +51,12 @@
     width: 100%;
   }
 
+}
+.bodyWrapper{
+  margin-bottom: 100px;
+}
+.imgClickPreguntas{
+  width: 100%;
 }
 
 .lvl_badge{

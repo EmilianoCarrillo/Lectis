@@ -86,13 +86,19 @@ function Lectura({ lectura }) {
                 src={"/assets/lvl"+ nivel +".svg"}/>
           </div>
       </div>
-      <div className={[styles.body, utils.reading_regular].join(' ')}>
-      {documentToReactComponents(cuerpo, dtrOptions)}
+      <div className={styles.bodyWrapper}>
+        <div className={[styles.body, utils.reading_regular].join(' ')}>
+        {documentToReactComponents(cuerpo, dtrOptions)}
+        </div>
+        {
+        preguntas && <img className={styles.imgClickPreguntas} src="/assets/imgFinal.svg" />
+        }
       </div>
       <div className={`${styles.fixed_elements} ${audio && preguntasAbiertas && styles.pausado}`}>
         {
           preguntas &&
-          <FloatingButton onClick={handleFloatingBtnClick} preguntasAbiertas={preguntasAbiertas}/> 
+          <FloatingButton onClick={handleFloatingBtnClick} preguntasAbiertas=
+          {preguntasAbiertas}/> 
         }
         {
           audio && <AudioPlayer audio={audio} pausar={preguntasAbiertas}/>
