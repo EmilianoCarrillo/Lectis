@@ -2,6 +2,7 @@ import styles from './seccion-preguntas.module.scss'
 import utils from '../styles/utils.module.css'
 import Tabs from './tabs'
 import Opciones from './opciones'
+import Toastr from './toastr'
 import { useState, useRef, useEffect } from 'react'
 
 const shuffle = (arr) => {
@@ -18,6 +19,15 @@ function SeccionPreguntas({ abierta, preguntas }) {
   const [showFeedback, setShowFeedback] = useState(false)
   const [refOpciones, setRefOpciones] = useState()
   const[resultados, setResultados] = useState()
+  const[showToastr, setShowToastr] = useState(false)
+  const[startTime, setStartTime] = useState(Date.now())
+  const[respuestaEsMuyRapida, setRespuestaEsMuyRapida] = useState(false)
+
+  const checkSiRespuestaEsMuyRapida = () =>{
+    let millis = Date.now() - startTime
+    let secondsElapsed =  Math.floor(millis / 1000)
+    return (secondsElapsed < 4)
+  }
 
   const handleSiguientePreguntaClick = () => {
     if (currentQIndex == preguntas.length-1){
@@ -39,8 +49,10 @@ function SeccionPreguntas({ abierta, preguntas }) {
   }
 
   useEffect( () => {
+    setStartTime(Date.now())
     setShowFeedback(false)
     setRespuestasAleatorias(shuffle(preguntas[currentQIndex].respuestas));
+    setShowToastr(false)
   }, [currentQIndex])
 
   useEffect( () => {
@@ -52,6 +64,7 @@ function SeccionPreguntas({ abierta, preguntas }) {
   }, [preguntas])
 
   return (
+    <>
     <div className={`${styles.wrapper} ${abierta && styles.abierta}`}>
       <div className={`${styles.shadow} ${abierta && styles.abierta}`}></div>
       { resultados && <Tabs resultados={resultados}/>}
@@ -64,7 +77,7 @@ function SeccionPreguntas({ abierta, preguntas }) {
             {preguntas[currentQIndex].pregunta}
           </h3>
         </div>
-        <Opciones respuestas={respuestasAleatorias} handleClick={handleOpcionClick}/>
+        <Opciones respuestas={respuestasAleatorias} handleClick={handleOpcionClick} checkRespRapida={checkSiRespuestaEsMuyRapida} showToastr={() => setShowToastr(true)}/>
         
         <div className={`${styles.feedbackWrapper} ${!showFeedback && styles.hideFb}`}>
           <div className={styles.retroalimentacion}>
@@ -84,6 +97,8 @@ function SeccionPreguntas({ abierta, preguntas }) {
         </div>
       </div>
     </div>
+    <Toastr show={showToastr}/>
+    </>
   )
 }
 

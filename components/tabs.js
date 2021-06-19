@@ -1,8 +1,7 @@
 import styles from './tabs.module.scss'
 import utils from '../styles/utils.module.css'
 
-function Tabs({ resultados }) {
-  console.log(resultados)
+function Tabs({ resultados }) { 
   return (
     <div className={styles.wrapper}>
     {
