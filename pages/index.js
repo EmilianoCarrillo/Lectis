@@ -2,6 +2,7 @@ import utils from '../styles/utils.module.css'
 import styles from './index.module.scss'
 import { createClient } from 'contentful'
 import BotonCategoria from '../components/boton-categoria'
+import Slider from '../components/slider'
 
 export async function getStaticProps() {
   const client = createClient({
@@ -19,17 +20,21 @@ export async function getStaticProps() {
   }
 }
 
+const media = ['/assets/callout 1.png','/assets/callout 2.png','/assets/callout 3.png']
+
 function Inicio({ categorias }) {
   return (
     <div className={styles.global_wrapper}>
       <div className={styles.heading}>
-        <p className={utils.subtitle_regular}>Hola, ElMagoJael</p>
+        <p className={utils.subtitle_regular}>Bienvenida/o, lector/a</p>
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
 
+      {/* Placeholder blue card. Deprecieted
       <div className={styles.card}>
+      </div> */}
 
-      </div>
+      <Slider media={media}/>
 
       <div className={styles.categorias}>
         <p className={utils.caption_medium }>Categorías</p>

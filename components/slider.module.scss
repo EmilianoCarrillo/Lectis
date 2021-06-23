@@ -1,0 +1,98 @@
+.wrapper{
+  width: 100%;
+  background: var(--grey--100);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 46px;
+  box-shadow: var(--card);
+}
+
+.mediawrapper{
+  background: var(--grey--400);
+  position: relative;
+  height: 100%;
+}
+
+.footer{
+  display: flex; 
+  justify-content: flex-end; 
+}
+
+.cta{
+  background: var(--blue--500);
+  color: var(--grey--100);
+  padding: 6px 16px;
+  border-radius: 42px;
+  margin: 12px 16px;
+  box-shadow: 0px 2px 3px rgba(136, 192, 234, 0.51),0px 0px 8px rgba(70, 165, 221, 0.56);
+
+  &.disabled{
+    box-shadow: none;
+    background: var(--grey--300);
+    color: var(--grey--500);
+  }
+}
+
+.pagination{
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.dot{
+  background: #485380;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+
+  transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+
+  &.current{
+    background-color: var(--grey--100);
+    width: 16px;
+    border-radius: 4px;
+  }
+
+  &:not(:first-child){
+    margin-left: 4px;
+  }
+}
+
+.etiquette{
+  background: var(--grey--100);
+  height: 26px;
+  width: 200px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--card);
+  transform: rotate(-28deg); /* Equal to rotateZ(45deg) */
+  top: 20px;
+  left: -42px;
+
+  span{
+    color: var(--grey--900);
+    font-size: 12px !important;
+  }
+}
+
+.media{
+  display: flex;
+  flex-direction: row;
+  transform: translateX(0);
+
+  transition: transform 0.4s ease-in-out;
+  -moz-transition: transform 0.4s ease-in-out;
+  -webkit-transition: transform 0.4s ease-in-out;
+}
+
+.mediaItem{
+  width: 100%;
+  pointer-events: none;
+}
