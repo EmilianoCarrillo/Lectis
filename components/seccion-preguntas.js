@@ -26,7 +26,7 @@ function SeccionPreguntas({ abierta, preguntas }) {
   const checkSiRespuestaEsMuyRapida = () =>{
     let millis = Date.now() - startTime
     let secondsElapsed =  Math.floor(millis / 1000)
-    return (secondsElapsed < 4)
+    return (secondsElapsed < 2)
   }
 
   const handleSiguientePreguntaClick = () => {
