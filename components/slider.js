@@ -14,6 +14,16 @@ export default function Slider({media}) {
     `translateX(-${mediaRef.current.clientWidth * ((currentIndex+1) % media.length)}px)`);
   }
 
+  useEffect(() => {
+    let timeout = setTimeout( () => {
+      handleDrag()
+    }, 6000)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [currentIndex])
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.mediawrapper}
