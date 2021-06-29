@@ -1,8 +1,8 @@
 import utils from '../styles/utils.module.css'
 import styles from './index.module.scss'
 import { createClient } from 'contentful'
-import BotonCategoria from '../components/boton-categoria'
 import Slider from '../components/slider'
+import SeccionCategorias from '../components/seccion-catagorias'
 
 export async function getStaticProps() {
   const client = createClient({
@@ -35,17 +35,9 @@ function Inicio({ categorias }) {
       </div> */}
 
       <Slider media={media}/>
+      <SeccionCategorias categorias={categorias}/>
 
-      <div className={styles.categorias}>
-        <p className={utils.caption_medium }>Categorías</p>
-        {
-          categorias.map(categoria => (
-            <BotonCategoria 
-              key={categoria.sys.id}
-              categoria={categoria}/>
-          ))
-        }
-      </div>
+      
     </div>
   )
 }
