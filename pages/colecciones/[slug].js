@@ -1,5 +1,5 @@
 import utils from '../../styles/utils.module.css'
-import styles from './categorias.module.scss'
+import styles from './colecciones.module.scss'
 import NavigationBar from '../../components/navigation-bar'
 import CardGrid from '../../components/card-grid'
 import { createClient } from 'contentful'
@@ -12,7 +12,7 @@ const client = createClient({
 
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
-    content_type: 'categoria'
+    content_type: 'coleccin'
   })
 
   const paths = res.items.map(item => {
@@ -30,32 +30,28 @@ export const getStaticPaths = async () => {
 // Recolectar datos de esta categoría
 export async function getStaticProps({ params }) {
   const { items } = await client.getEntries({
-    content_type: 'categoria',
+    content_type: 'coleccin',
     'fields.slug': params.slug
-  })
-
-  const lects  = await client.getEntries({
-    content_type: 'lectura',
-    'fields.categoria.sys.id': items[0].sys.id
   })
 
   return{
     props: { 
-      categoria : items[0],
-      lecturas : lects.items
+      coleccion : items[0]
     }, 
     revalidate: 1
   }
 }
 
-function Lecturas({ categoria, lecturas }) {
+function Colecciones({ coleccion }) {
+  const { titulo, slug, coleccionDestacada, descripcion, lecturas  } = coleccion.fields
+
   return (
     <div>
       <NavigationBar />
       <div className={styles.title}>
-        <img src={'https:' + categoria.fields.icono.fields.file.url} 
-          alt="icono" />
-        <p className={utils.subtitle_regular}>{categoria.fields.nombre}</p>
+        <p className={`${utils.caption_medium} ${styles.tagline}`}>COLLECCIÓN</p>
+        <h2 className={utils.subtitle_medium}>{titulo}</h2>
+        <p className={!coleccionDestacada && styles.hidden}>{descripcion}</p>
       </div>
 
       <CardGrid lecturas={lecturas} />
@@ -63,4 +59,4 @@ function Lecturas({ categoria, lecturas }) {
   )
 }
 
-export default Lecturas
+export default Colecciones

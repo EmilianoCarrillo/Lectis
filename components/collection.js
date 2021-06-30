@@ -10,7 +10,7 @@ export default function Collection({ coleccion }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.heading}>
-        <Link href='/'>
+        <Link href={'/colecciones/' + slug}>
           <div className={styles.titleLink}>
             <h4 className={utils.subtitle_medium}>{titulo}</h4>
             <Image src='/assets/chevron-right.svg' width={16} height={16} 

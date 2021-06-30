@@ -1,10 +1,12 @@
 import styles from './card.module.scss'
 import utils from '../styles/utils.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Card({ Large, lectura, Responsive }) { 
   const { titulo, slug, autor, imagenDeTarjeta} = lectura.fields
   return (
+    <Link href={'/lecturas/' + slug}>
     <div className={`${styles.wrapper} ${Responsive && styles.responsive}`}>
       <div className={`${styles.cover} ${Large && styles.large} 
         ${Responsive && styles.responsive}`}>
@@ -21,6 +23,7 @@ function Card({ Large, lectura, Responsive }) {
         <p className={utils.small_regular}>{autor}</p>
       </div>
     </div>
+    </Link>
   )
 }
 

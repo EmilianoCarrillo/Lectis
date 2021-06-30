@@ -1,0 +1,11 @@
+.card_grid{
+  margin-top: 42px;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  row-gap: 32px;
+  position: relative;
+}

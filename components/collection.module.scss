@@ -45,6 +45,10 @@
   display: flex;
 
   h4{ margin-right: 4px; }
+
+  &:hover{
+    color: var(--grey--500);
+  }
 }
 
 .card{
