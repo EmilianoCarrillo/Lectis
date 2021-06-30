@@ -70,30 +70,33 @@ function Lectura({ lectura }) {
 
   return (
     <div>
-      <NavigationBar />
-      <div className={styles.header}>
-        <h1 className={utils.title_medium}>{titulo}</h1>
-        <h3 className={utils.subtitle_regular}>{autor}</h3>
-      </div>
+      <NavigationBar floating/>
       <div className={styles.cover}>
           <Image className={styles.image}
               src={'https:' + portada.fields.file.url} 
               layout="fill" objectFit="cover"
           />
-          <div className={styles.lvl_badge}>
+          {/* <div className={styles.lvl_badge}>
             <span>Nivel {nivel}</span> 
             <img  className={styles.lvl} 
                 src={"/assets/lvl"+ nivel +".svg"}/>
-          </div>
+          </div> */}
       </div>
-      <div className={styles.bodyWrapper}>
-        <div className={[styles.body, utils.reading_regular].join(' ')}>
-        {documentToReactComponents(cuerpo, dtrOptions)}
+      <div className={styles.glass}/>
+      <div className={styles.upper}>
+        <div className={styles.header}>
+          <h1 className={utils.title_medium}>{titulo}</h1>
+          <h3 className={utils.subtitle_regular}>{autor}</h3>
         </div>
-        {
-        preguntas && <img className={styles.imgClickPreguntas} src="/assets/imgFinal.svg" />
-        }
-      </div>
+        <div className={styles.bodyWrapper}>
+          <div className={[styles.body, utils.reading_regular].join(' ')}>
+          {documentToReactComponents(cuerpo, dtrOptions)}
+          </div>
+          {
+          preguntas && <img className={styles.imgClickPreguntas} src="/assets/imgFinal.svg" />
+          }
+        </div>
+      </div> 
       <div className={`${styles.fixed_elements} ${audio && preguntasAbiertas && styles.pausado}`}>
         {
           preguntas &&
