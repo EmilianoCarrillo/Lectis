@@ -3,14 +3,14 @@
   height: 14px;
   width: 100%;
   flex: auto;
-  background: #424B59
+  background: var(--grey--900)
 }
 
 .tab{
   height: 14px;
   width: 100%;
   border-radius: 14px;
-  background: #58606C;
+  background: #2D3A57;
   margin-right: 8px;
 
   transition: all 0.5s ease-in-out;

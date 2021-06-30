@@ -7,7 +7,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import AudioPlayer from '../../components/audio-player'
 import { BLOCKS } from "@contentful/rich-text-types"
 import SeccionPreguntas from '../../components/seccion-preguntas'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import FloatingButton from '../../components/floating-button'
 
 // Generar páginas por cada lectura
@@ -66,7 +66,7 @@ function Lectura({ lectura }) {
 
   const handleFloatingBtnClick = () => {
     setPreguntasAbiertas(!preguntasAbiertas);
-  }
+  } 
 
   return (
     <div>

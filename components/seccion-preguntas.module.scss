@@ -5,8 +5,10 @@
   height: 100%;
   top: 100%;
   z-index: 4;
-  background: #424B59;
-  background-image: url('/assets/bg.svg');
+  // background: #424B59;
+  background: var(--grey--900);
+  // background-image: url('/assets/bg.svg');
+  background-image: url('/assets/bg2.svg');
   background-repeat: no-repeat;
   background-position: center; 
   background-size: 100% auto;
@@ -36,7 +38,7 @@
   height: 60px;
   z-index:6;
   pointer-events: none;
-  box-shadow: inset 0px 20px 19px 5px rgba(66, 75, 89, 1);
+  box-shadow: inset 0px 20px 19px 5px var(--grey--900);
   border-radius: 60px;
 
   transition: ease-in-out all 0.5s;
