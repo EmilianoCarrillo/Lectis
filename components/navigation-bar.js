@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 function NavigationBar({ floating }) {
   const router = useRouter()
   return (
-    <div className={`${styles.wrapper} ${styles.floating}`}>
+    <div className={`${styles.wrapper} ${floating && styles.floating}`}>
         {
           floating ?
           <img src="/assets/back-black.svg" alt="Atrás" onClick={() => router.back()}/>
