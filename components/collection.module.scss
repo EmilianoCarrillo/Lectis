@@ -1,0 +1,48 @@
+.wrapper{
+  margin-top: 48px;
+}
+
+.heading{
+  p{
+    //styleName: prov;
+    font-size: 13px;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--grey--600);
+    margin-top: 8px;
+  }
+}
+
+.cards{
+  margin-top: 16px;
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: visible;
+  position: relative;
+  width: 100vw;
+  transform: translateX(-32px);
+}
+
+.separator{
+  min-width: 32px;
+  height: 50px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.cards {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.titleLink{
+  display: flex;
+
+  h4{ margin-right: 4px; }
+}

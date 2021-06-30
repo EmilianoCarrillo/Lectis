@@ -3,6 +3,7 @@ import styles from './index.module.scss'
 import { createClient } from 'contentful'
 import Slider from '../components/slider'
 import SeccionCategorias from '../components/seccion-catagorias'
+import Collection from '../components/collection'
 
 export async function getStaticProps() {
   const client = createClient({
@@ -30,9 +31,7 @@ function Inicio({ categorias }) {
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
 
-      {/* Placeholder blue card. Deprecieted
-      <div className={styles.card}>
-      </div> */}
+      <Collection />
 
       <Slider media={media}/>
       <SeccionCategorias categorias={categorias}/>
