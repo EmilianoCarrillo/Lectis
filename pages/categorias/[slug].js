@@ -1,7 +1,7 @@
 import utils from '../../styles/utils.module.css'
 import styles from './categorias.module.scss'
 import NavigationBar from '../../components/navigation-bar'
-import LecturaCard from '../../components/lectura-card'
+import Card from '../../components/card'
 import { createClient } from 'contentful'
 
 // Generar páginas por cada categoría
@@ -58,10 +58,11 @@ function Lecturas({ categoria, lecturas }) {
         <p className={utils.subtitle_regular}>{categoria.fields.nombre}</p>
       </div>
 
-      <div className={styles.card_list}>
+      <div className={styles.card_grid}>
       {
         lecturas.map(lectura => (
-          <LecturaCard 
+          <Card 
+            Responsive
             lectura={lectura}
             key={lectura.sys.id}
           />

@@ -46,3 +46,10 @@
 
   h4{ margin-right: 4px; }
 }
+
+.card{
+  margin-right: 8px;
+  &:nth-child(1){
+    margin-left: 32px; 
+  }
+}

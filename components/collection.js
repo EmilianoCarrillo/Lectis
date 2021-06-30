@@ -24,7 +24,9 @@ export default function Collection({ coleccion }) {
       <div className={styles.cards}>
         {
           lecturas.map(lectura => (
-            <Card Large={coleccionDestacada} lectura={lectura} key={lectura.sys.id}/>
+            <div className={styles.card}>
+              <Card Large={coleccionDestacada} lectura={lectura} key={lectura.sys.id} />
+            </div>
           ))
         }
         <div className={styles.separator}/>
