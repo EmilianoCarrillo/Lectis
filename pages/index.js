@@ -12,11 +12,16 @@ export async function getStaticProps() {
     accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
   })
 
-  const res = await client.getEntries({ content_type: 'categoria' })
+  const res = await client.getEntries({ content_type: 'categoria' 
+  })
+
+  const colecc = await client.getEntries({ content_type: 'coleccin' 
+  })
 
   return {
     props: {
-      categorias: res.items
+      categorias: res.items,
+      colecciones: colecc.items
     },
     revalidate: 1
   }
@@ -24,7 +29,7 @@ export async function getStaticProps() {
 
 const media = ['/assets/callout 1.png','/assets/callout 2.png','/assets/callout 3.png']
 
-function Inicio({ categorias }) {
+function Inicio({ categorias, colecciones }) {
   return (
     <div className={styles.global_wrapper}>
       <div className={styles.heading}>
@@ -32,9 +37,11 @@ function Inicio({ categorias }) {
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
 
-      {/* <Banner /> */}
-
-      <Collection />
+      {
+        colecciones.map(coleccion => (
+          <Collection coleccion={coleccion} id={coleccion.sys.id}/>
+        ))
+      }
 
       <Slider media={media}/>
       <SeccionCategorias categorias={categorias}/>
