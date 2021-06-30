@@ -4,6 +4,7 @@ import { createClient } from 'contentful'
 import Slider from '../components/slider'
 import SeccionCategorias from '../components/seccion-catagorias'
 import Collection from '../components/collection'
+import Banner from '../components/banner'
 
 export async function getStaticProps() {
   const client = createClient({
@@ -30,6 +31,8 @@ function Inicio({ categorias }) {
         <p className={utils.subtitle_regular}>Bienvenida/o, lector/a</p>
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
+
+      {/* <Banner /> */}
 
       <Collection />
 

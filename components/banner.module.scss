@@ -1,0 +1,22 @@
+.wrapper{
+  display: flex;
+  margin-top: 39px;
+  margin-bottom: 55px;
+  width: 100vw;
+  transform: translateX(-32px);
+  overflow-x: scroll;
+  overflow-y: visible;
+}
+
+.banner{
+  min-height: 152px;
+  min-width: 270px;
+  background: var(--grey--400);
+  border-radius: 16px;
+  margin-left: 16px;
+}
+
+.banner:nth-of-type(2){
+  height: 166px;
+  width: 295px;
+}
