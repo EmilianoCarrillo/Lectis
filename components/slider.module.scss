@@ -3,9 +3,10 @@
   background: var(--grey--100);
   border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 46px;
   box-shadow: var(--card);
   margin-top: 48px;
+  position: relative;
+  z-index: 3;
 }
 
 .mediawrapper{
@@ -96,4 +97,19 @@
 .mediaItem{
   width: 100%;
   pointer-events: none;
+}
+
+.gradient{
+  position: absolute;
+  width: 100vw;
+  height: 228px;
+
+  background-image: url('/assets/highlight-gradient.svg');
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100% auto;
+
+  left: 0;
+  transform: translateY(-100%);
+  z-index: 1;
 }

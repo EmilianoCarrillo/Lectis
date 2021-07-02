@@ -5,6 +5,7 @@ import Slider from '../components/slider'
 import SeccionCategorias from '../components/seccion-catagorias'
 import Collection from '../components/collection'
 import Banner from '../components/banner'
+import Footer from '../components/footer'
 
 export async function getStaticProps() {
   const client = createClient({
@@ -48,7 +49,7 @@ function Inicio({ categorias, colecciones }) {
       <Slider media={media}/>
       <SeccionCategorias categorias={categorias}/>
 
-      
+      <Footer />
     </div>
   )
 }

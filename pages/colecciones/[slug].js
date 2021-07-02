@@ -3,6 +3,7 @@ import styles from './colecciones.module.scss'
 import NavigationBar from '../../components/navigation-bar'
 import CardGrid from '../../components/card-grid'
 import { createClient } from 'contentful'
+import Footer from '../../components/footer'
 
 // Generar páginas por cada categoría
 const client = createClient({
@@ -55,6 +56,8 @@ function Colecciones({ coleccion }) {
       </div>
 
       <CardGrid lecturas={lecturas} />
+
+      <Footer />
     </div>
   )
 }
