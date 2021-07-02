@@ -37,6 +37,8 @@ function Inicio({ categorias, colecciones }) {
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
 
+      {/* <Banner /> */}
+
       {
         colecciones.map(coleccion => (
           <Collection coleccion={coleccion} id={coleccion.sys.id}/>

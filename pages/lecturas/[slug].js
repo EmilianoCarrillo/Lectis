@@ -72,18 +72,24 @@ function Lectura({ lectura }) {
     <div>
       <NavigationBar floating/>
       <div className={styles.cover}>
+        {
+          portada &&
           <Image className={styles.image}
-              src={'https:' + portada.fields.file.url} 
-              layout="fill" objectFit="cover"
+            src={'https:' + portada.fields.file.url} 
+            layout="fill" objectFit="cover"
           />
-          {/* <div className={styles.lvl_badge}>
-            <span>Nivel {nivel}</span> 
-            <img  className={styles.lvl} 
-                src={"/assets/lvl"+ nivel +".svg"}/>
-          </div> */}
+        }
+        {/* <div className={styles.lvl_badge}>
+          <span>Nivel {nivel}</span> 
+          <img  className={styles.lvl} 
+              src={"/assets/lvl"+ nivel +".svg"}/>
+        </div> */}
       </div>
-      <div className={styles.glass}/>
-      <div className={styles.upper}>
+      {
+          portada &&
+        <div className={styles.glass}/>
+      }
+      <div className={`${styles.upper} ${!portada && styles.extraPadding}`}>
         <div className={styles.header}>
           <h1 className={utils.title_medium}>{titulo}</h1>
           <h3 className={utils.subtitle_regular}>{autor}</h3>

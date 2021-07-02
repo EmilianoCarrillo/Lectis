@@ -1,22 +1,38 @@
-.wrapper{
-  display: flex;
+.carousel{
   margin-top: 39px;
   margin-bottom: 55px;
   width: 100vw;
   transform: translateX(-32px);
-  overflow-x: scroll;
+  overflow-x: hidden;
   overflow-y: visible;
+  min-height: 180px;
+}
+
+.wrapper{
+  display: flex;
+  align-items: center;
+  touch-action: pan-y;
 }
 
 .banner{
-  min-height: 152px;
+  height: 152px;
   min-width: 270px;
   background: var(--grey--400);
   border-radius: 16px;
-  margin-left: 16px;
+  margin-right: 16px;
+  box-shadow: 0px 4px 8px rgba(8, 33, 73, 0.15);
+
+  transform: translateX(20%);
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner:nth-of-type(2){
+.banner.active{
   height: 166px;
   width: 295px;
 }
