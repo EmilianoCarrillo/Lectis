@@ -8,7 +8,7 @@ function Card({ Large, lectura, Responsive }) {
   const { titulo, slug, autor, imagenDeTarjeta} = lectura.fields
   return (
     <Link href={'/lecturas/' + slug}>
-    <div className={`${styles.wrapper} ${Responsive && styles.responsive}`}>
+    <div className={`${styles.wrapper} ${Large && styles.large} ${Responsive && styles.responsive}`}>
       <div className={`${styles.cover} ${Large && styles.large} 
         ${Responsive && styles.responsive}`}>
         {
