@@ -1,10 +1,10 @@
 import React from "react";
 import utils from '../styles/utils.module.css'
-import styles from './login.module.scss'
+import styles from './ingresa.module.scss'
 import LoginForm from "../components/loginForm";
 import NavigationBar from '../components/navigation-bar'
  
-export default function Login() {
+export default function Ingresa() {
   return (
     <>
     <NavigationBar/>
