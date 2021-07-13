@@ -1,7 +1,7 @@
 import styles from './nav-bar-btn.module.scss'
 import utils from '../styles/utils.module.css'
 import Link from 'next/link'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 export default function NavBarButton({label, isActive, href}) {
   return (
