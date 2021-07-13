@@ -1,0 +1,19 @@
+.wrapper{
+  position: relative;
+  height: 42px;
+  width: 100vw;
+  background-color: var(--grey--100);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h3{
+    color: var(--grey--700);
+  }
+}
+
+.settingsBtn{
+  position: absolute;
+  right: 32px;
+  top: 10px;
+}

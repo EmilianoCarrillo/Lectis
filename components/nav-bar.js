@@ -36,6 +36,20 @@ export default function NavBar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [scrollDir]);
 
+  useEffect(() => {
+    switch (path) {
+      case "/":
+        setActiveButton("Inicio");
+        break;
+      case "/Perfil":
+        setActiveButton("Perfil");
+        break;
+      case "/Buscar":
+        setActiveButton("Buscar");
+        break;
+    }
+  }, [])
+
   return (
     <ul
       className={`${styles.wrapper} ${
@@ -45,20 +59,22 @@ export default function NavBar() {
       <NavBarButton
         label="Inicio"
         href="/"
-        isActive={activeButton == 'Inicio'}
-        onClick={() => setActiveButton('Inicio')}
+        isActive={activeButton == "Inicio"}
+        onClick={() => setActiveButton("Inicio")}
       />
       <NavBarButton
         label="Perfil"
         href="/Perfil"
-        isActive={activeButton == 'Perfil'}
-        onClick={() => setActiveButton('Perfil')}
+        isActive={activeButton == "Perfil"}
+        onClick={() => setActiveButton("Perfil")}
       />
       <NavBarButton
         label="Buscar"
         href="/Buscar"
-        isActive={activeButton == 'Buscar'}
-        onClick={() => {setActiveButton('Buscar')}}
+        isActive={activeButton == "Buscar"}
+        onClick={() => {
+          setActiveButton("Buscar");
+        }}
       />
     </ul>
   );
