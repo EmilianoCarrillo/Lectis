@@ -7,7 +7,7 @@ import NavigationBar from '../components/navigation-bar'
 export default function Registro() {
   return (
     <>
-    <NavigationBar/>
+    <NavigationBar href='/'/>
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <h2 className={utils.body_regular}>Registro de una cuenta nueva</h2>

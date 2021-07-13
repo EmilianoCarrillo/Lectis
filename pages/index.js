@@ -57,7 +57,7 @@ function Inicio({ categorias, colecciones }) {
       {/* <Banner /> */}
 
       {colecciones.map((coleccion, i) => {
-        if (i == 0) {
+        if (i == 0 && !auth.user?.uid) {
           return (
             <div className={styles.sliderWrap}>
               <Collection coleccion={coleccion} id={coleccion.sys.id} />

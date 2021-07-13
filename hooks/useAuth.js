@@ -48,8 +48,60 @@ const useAuthProvider = () => {
       });
   };
 
+  const signIn = ({ email, password }) => {
+    return auth
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        setUser(response.user);
+        getUserAdditionalData(user);
+        return response.user;
+      })
+      .catch((error) => {
+        return { error };
+      });
+  };
+
+  const getUserAdditionalData = (user) => {
+    return db
+      .collection("usuarios")
+      .doc(user.uid)
+      .get()
+      .then((userData) => {
+        if (userData.data()) {
+          setUser(userData.data());
+        }
+      });
+  };
+
+  const handleAuthStateChanged = (user) => {
+    setUser(user);
+    if (user) {
+      getUserAdditionalData(user);
+    }
+  };
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged(handleAuthStateChanged);
+    return () => unsub();
+  }, []);
+
+  useEffect(() => {
+    if (user?.uid) {
+      // Subscribe to user document on mount
+      const unsubscribe = db
+        .collection("users")
+        .doc(user.uid)
+        .onSnapshot((doc) => setUser(doc.data()));
+      return () => unsubscribe();
+    }
+  }, []);
+
   return {
     user,
     signUp,
+    signIn,
   };
 };
+
+// Tutorial tomado de:
+// https://betterprogramming.pub/implement-user-authentication-with-next-js-and-firebase-fb9414adba08

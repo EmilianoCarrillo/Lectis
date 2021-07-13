@@ -2,6 +2,7 @@ import Head from 'next/head'
 import '../styles/globals.css'
 import { AppProps } from 'next/app'
 import { AuthProvider } from '../hooks/useAuth'
+import Layout from '../components/layout'
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -34,7 +35,9 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
       </Head>
+      <Layout>
       <Component {...pageProps} />
+      </Layout>
     </div>
     </AuthProvider>
   )

@@ -1,0 +1,14 @@
+.wrapper{
+  display: block;
+  background: var(--grey--100);
+  width: 100vw;
+  // height: 74px;
+  height: 85px;
+  transform: translateY(16px);
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid var(--grey--500);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 32px;
+}

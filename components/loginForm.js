@@ -6,6 +6,8 @@ import * as Yup from "yup";
 import Link from "next/link";
 import ButtonLink from "./buttonLink";
 import Image from 'next/image'
+import { useAuth } from "../hooks/useAuth";
+import { useRouter } from "next/router";
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string()
@@ -16,6 +18,8 @@ const LoginSchema = Yup.object().shape({
 
 export default function LoginForm() {
   const [passwordHidden, setPasswordHidden] = useState(true)
+  const auth = useAuth();
+  const router = useRouter();
 
   function handleEyeClick() {
     setPasswordHidden(!passwordHidden)
@@ -29,7 +33,9 @@ export default function LoginForm() {
       }}
       validationSchema={LoginSchema}
       onSubmit={(values, { setSubmitting }) => {
-        console.log(values);
+        auth.signIn(values).then(() => {
+          router.push('/');
+        });
       }}
       validateOnMount
     >

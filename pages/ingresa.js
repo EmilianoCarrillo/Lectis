@@ -7,7 +7,7 @@ import NavigationBar from '../components/navigation-bar'
 export default function Ingresa() {
   return (
     <>
-    <NavigationBar/>
+    <NavigationBar href='/'/>
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <h2 className={utils.body_regular}>Inicio de sesión</h2>
