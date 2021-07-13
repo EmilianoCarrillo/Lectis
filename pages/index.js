@@ -6,6 +6,7 @@ import SeccionCategorias from "../components/seccion-catagorias";
 import Collection from "../components/collection";
 import Banner from "../components/banner";
 import Footer from "../components/footer";
+import { useAuth } from "../hooks/useAuth";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -33,10 +34,23 @@ const media = [
 ];
 
 function Inicio({ categorias, colecciones }) {
+  const auth = useAuth();
+
+  if (auth.user) console.log(auth.user);
   return (
     <div className={styles.global_wrapper}>
       <div className={styles.heading}>
-        <p className={utils.subtitle_regular}>Bienvenida/o, lector/a</p>
+        {auth.user ? (
+          <p className={utils.subtitle_regular}>
+            ¡Hola,{" "}
+            {auth.user.nickname == ""
+              ? auth.user.name.split(" ")[0]
+              : auth.user.nickname}
+            !
+          </p>
+        ) : (
+          <p className={utils.subtitle_regular}>Bienvenida/o, lector/a</p>
+        )}
         <p className={utils.title_medium}>¿Qué leeremos hoy?</p>
       </div>
 

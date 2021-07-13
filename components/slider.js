@@ -19,7 +19,6 @@ export default function Slider({ media }) {
       }px)`
     );
     setCurrentIndex(newIndex)
-    console.log(newIndex)
   }
 
   const handlers = useSwipeable({

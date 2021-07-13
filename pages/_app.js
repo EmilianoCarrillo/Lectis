@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import '../styles/globals.css'
+import { AppProps } from 'next/app'
+import { AuthProvider } from '../hooks/useAuth'
 
 export default function MyApp({ Component, pageProps }) {
   return (
+    <AuthProvider>
     <div className='app_wrapper'>
       <Head>
         <meta charSet="utf-8" />
@@ -32,6 +35,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <Component {...pageProps} />
-    </ div>
+    </div>
+    </AuthProvider>
   )
 }
