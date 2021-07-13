@@ -1,6 +1,6 @@
 import styles from './banner.module.scss'
 import utils from '../styles/utils.module.css'
-import React, {useState} from 'react'
+import {useState} from 'react'
 import { useSwipeable } from 'react-swipeable'
 
 function Banner() { 

@@ -1,6 +1,6 @@
 import styles from "./loginForm.module.scss";
 import utils from "../styles/utils.module.css";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import ButtonLink from "./buttonLink";
