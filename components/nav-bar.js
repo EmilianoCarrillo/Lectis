@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 export default function NavBar() {
   const path = useRouter().pathname;
   const [activeButton, setActiveButton] = useState("Inicio");
-  const [scrollDir, setScrollDir] = useState("scrolling down");
+  const [scrollDir, setScrollDir] = useState("scrolling up");
 
   useEffect(() => {
     const threshold = 5;

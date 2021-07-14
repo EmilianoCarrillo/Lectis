@@ -6,6 +6,7 @@ import {
   ReactNode,
 } from "react";
 import { auth, db } from "../Firebase";
+import { useRouter } from "next/router";
 
 const authContext = createContext({ user: {} });
 const { Provider } = authContext;
@@ -21,6 +22,7 @@ export const useAuth = () => {
 // Provider hook that creates an auth object and handles it's state
 const useAuthProvider = () => {
   const [user, setUser] = useState(null);
+  const router = useRouter();
 
   const createUser = (user) => {
     return db
@@ -73,6 +75,13 @@ const useAuthProvider = () => {
       });
   };
 
+  const signOut = () => {
+    return auth.signOut().then(() => {
+      setUser(false)
+      router.push('/')
+    })
+  };
+
   const handleAuthStateChanged = (user) => {
     setUser(user);
     if (user) {
@@ -96,10 +105,18 @@ const useAuthProvider = () => {
     }
   }, []);
 
+  const sendPasswordResetEmail = (email) => {
+    return auth.sendPasswordResetEmail(email).then((response) => {
+     return response;
+    });
+   };
+
   return {
     user,
     signUp,
     signIn,
+    signOut,
+    sendPasswordResetEmail
   };
 };
 

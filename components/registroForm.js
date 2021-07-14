@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import ButtonLink from "./buttonLink";
 import { useAuth } from "../hooks/useAuth";
 import { useRouter } from "next/router";
+import CTAButton from './cta-button'
 
 const LoginSchema = Yup.object().shape({
   name: Yup.string().required("Tu nombre es obligatorio."),
@@ -22,6 +23,7 @@ const LoginSchema = Yup.object().shape({
 
 export default function RegistroForm() {
   const [emailEnUso, setEmailEnUso] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const auth = useAuth();
   const router = useRouter();
   return (
@@ -34,14 +36,17 @@ export default function RegistroForm() {
       }}
       validationSchema={LoginSchema}
       onSubmit={(values, { setSubmitting }) => {
+        setIsLoading(true)
         auth.signUp(values).then((response) => {
           console.log(response.error);
           if (
             response.error &&
             response.error.code == "auth/email-already-in-use"
           ) {
+            setIsLoading(false)
             setEmailEnUso(true);
           } else {
+            setIsLoading(false)
             router.push("/");
           }
         });
@@ -129,12 +134,7 @@ export default function RegistroForm() {
               )}
             </ErrorMessage>
           </div>
-          <button
-            type="submit"
-            className={`${styles.cta} ${(!isValid || emailEnUso) && styles.disabled}`}
-          >
-            Comenzar a leer
-          </button>
+          <CTAButton isLoading={isLoading} isValid={!(!isValid || emailEnUso)} label='Comenzar a leer' labelWhileLoading='Registrando...'/>
           <ButtonLink href="/ingresa">
             ¿Ya tienes una cuenta? Inicia sesión.
           </ButtonLink>
