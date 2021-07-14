@@ -41,7 +41,10 @@ export default function LoginForm() {
         setError(null);
         auth.signIn(values).then((response) => {
           setIsLoading(false);
-          response.error ? setError(response.error) : router.push("/");
+          if (response.error && response.error.code) {
+            setError(response.error);
+            console.log(response)
+         } else router.push("/");
         });
       }}
       validateOnMount
