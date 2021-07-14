@@ -39,7 +39,7 @@ export default function LoginForm() {
       onSubmit={(values, { setSubmitting }) => {
         setIsLoading(true);
         setError(null);
-        return auth.signIn(values).then((response) => {
+        auth.signIn(values).then((response) => {
           setIsLoading(false);
           response.error ? setError(response.error) : router.push("/");
         });
